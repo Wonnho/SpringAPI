@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("v4/posts")  //class로 전체로 전달됨
-public class PostAPI3 {
+public class PostAPI4 {
 
     //Post class 의 instance, 즉 게시글을 넣을 List랠 생성
     List<Post> posts = new ArrayList<>();  //sleect, create, delete ;delegate DB role to it
@@ -86,7 +86,14 @@ public class PostAPI3 {
 
         } return null;
 
-
+        //유효성 체크 :제묵
+        if(post.title==null||post.title.isBlank()) {
+            throw new RuntimeException("enter title");
+        }
+        //내용
+        if(post.content==null||post.content.isBlank()) {
+            throw new IllegalArgumentException("enter content");
+        }
     }
 
 
