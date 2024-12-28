@@ -77,6 +77,9 @@ public class PostAPI3 {
     public Post updatePost(@PathVariable  Long id,@RequestBody Post updatePost) {
         String newTitle=updatePost.getTitle();
         String newContent=updatePost.getContent();
+
+
+
         for (Post post : posts) {
             if (post.getId().equals(id)) {
                 post.setTitle("수정된 제목");
