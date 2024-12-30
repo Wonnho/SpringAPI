@@ -1,16 +1,20 @@
-package com.example.demo.postmvc4;
+package com.example.demo.postmvc5;
 
 import com.example.demo.mysite.Post;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-
-@Service
+@Service("postServiceMvc5")
 public class PostService {
-    PostRepository postRepository=new PostRepository();
+//    PostRepository postRepository=new PostRepository();
 
+    public PostService(PostRepository postRepository) {
+        this.postRepository = postRepository;
+    }
 
+    PostRepository postRepository;
 
     public Post createPost(Post newPost) {
         // controller에게 데이터를 이볅받아서

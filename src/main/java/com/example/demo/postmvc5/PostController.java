@@ -1,4 +1,4 @@
-package com.example.demo.postmvc4;
+package com.example.demo.postmvc5;
 
 import com.example.demo.mysite.Post;
 import org.springframework.http.HttpStatus;
@@ -6,11 +6,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("postController4")
-@RequestMapping("/mvc4/posts")
+@RestController("postController5")
+@RequestMapping("/mvc5/posts")
 public class PostController {
-    PostService postService=new PostService();
+//    PostService postService=new PostService();
 
+    //DI'
+    PostService postService;
+
+    public PostController(PostService postService) {
+        this.postService = postService;
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)  //class로 전체로 전달됨
@@ -34,12 +40,11 @@ public class PostController {
 
     }
 
-
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public String deletePost(@PathVariable Long id) {
-        postService.deletePost(id);
-        return "completed deleted";
+         postService.deletePost(id);
+         return "completed deleted";
     }
 
 }
