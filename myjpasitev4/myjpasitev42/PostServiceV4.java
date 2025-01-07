@@ -1,9 +1,9 @@
-package com.example.demo.myjpasitev4;
+package com.example.demo.myjpasitev42;
 
-import com.example.demo.myjpasitev4.dto.PostCreateRequestDto;
-import com.example.demo.myjpasitev4.dto.PostListResponseDto;
-import com.example.demo.myjpasitev4.dto.PostResponseDto;
-import com.example.demo.myjpasitev4.dto.PostUpdateRequestDto;
+import com.example.demo.myjpasitev42.dto.PostCreateRequestDto;
+import com.example.demo.myjpasitev42.dto.PostListResponseDto;
+import com.example.demo.myjpasitev42.dto.PostResponseDto;
+import com.example.demo.myjpasitev42.dto.PostUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,18 +15,16 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PostServiceV4 {
 
-   private final PostRepositoryV4 postRepositoryV4;
+   private final PostRepositoryV42 postRepositoryV4;
 
    @Transactional
    public PostResponseDto createPost(PostCreateRequestDto requestDto) {
 
-//        PostV4 post=requestDto.toEntity();
-//       return postRepositoryV4.save(post);
-       // 위 두 commands가 아래 한 줄의 커맨드로 압축이 된다.
+//        post=requestDto.toEntity();
+//       postRepositoryV4.save(post);
        PostV4 post=postRepositoryV4.save(requestDto.toEntity());
        return PostResponseDto.from(post);
-       //위는 아래와 동일한 기능을 한다.
-// return new PostResponseDto((post.getId(), post.getTitle(), post.getContent(), post.getAuthor())));
+//       return new PostResponseDto((post.getId(), post.getTitle(), post.getContent(), post.getAuthor())));
 
    }
 
@@ -55,7 +53,7 @@ public class PostServiceV4 {
           return PostResponseDto.from(post);
    }
 
-   @Transactional()
+   @Transactional
    public void deletePost(Long id) {
        PostV4 post=postRepositoryV4.findById(id)
                .orElseThrow(()->new IllegalArgumentException());

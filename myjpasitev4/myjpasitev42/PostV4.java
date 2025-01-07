@@ -1,6 +1,6 @@
-package com.example.demo.myjpasitev4;
+package com.example.demo.myjpasitev42;
 
-import com.example.demo.myjpasitev4.dto.PostUpdateRequestDto;
+import com.example.demo.myjpasitev42.dto.PostUpdateRequestDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;

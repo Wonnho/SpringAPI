@@ -1,15 +1,18 @@
-package com.example.demo.myjpasitev4;
+package com.example.demo.myjpasitev42;
 
-import com.example.demo.myjpasitev4.dto.*;
+import com.example.demo.myjpasitev42.dto.PostCreateRequestDto;
+import com.example.demo.myjpasitev42.dto.PostListResponseDto;
+import com.example.demo.myjpasitev42.dto.PostResponseDto;
+import com.example.demo.myjpasitev42.dto.PostUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/jpa/v4/posts")
+@RequestMapping("/jpa/v42/posts")
 @RequiredArgsConstructor  // due to DI. postService때문에 필요하다.
-public class PostControllerV4 {
+public class PostControllerV42 {
 
     private final PostServiceV4 postServiceV4;
 

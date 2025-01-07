@@ -1,6 +1,6 @@
-package com.example.demo.myjpasitev4;
+package com.example.demo.ResponseEntity5;
 
-import com.example.demo.myjpasitev4.dto.PostUpdateRequestDto;
+import com.example.demo.ResponseEntity5.dto.PostUpdateRequestDto;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,27 +12,28 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED) // JPA required
-public class PostV4 {
-
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+public class PostV5 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
 
     private String title;
     private String content;
     private String author;
 
     @Builder
-    public PostV4(String title,String content,String author) {
-        this.title=title;
-        this.content=content;
-        this.author=author;
+    public PostV5(String title, String content, String author) {
+        this.title = title;
+        this.content = content;
+        this.author = author;
     }
 
-    public PostV4 update(PostUpdateRequestDto requestDto) {
-        this.title=requestDto.getTitle();
-        this.content=requestDto.getContent();
+    public PostV5 update(PostUpdateRequestDto requestDto){
+        this.title = requestDto.getTitle();
+        this.content = requestDto.getContent();
         return this;
+
     }
 }

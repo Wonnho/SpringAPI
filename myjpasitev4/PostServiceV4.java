@@ -20,13 +20,11 @@ public class PostServiceV4 {
    @Transactional
    public PostResponseDto createPost(PostCreateRequestDto requestDto) {
 
-//        PostV4 post=requestDto.toEntity();
-//       return postRepositoryV4.save(post);
-       // 위 두 commands가 아래 한 줄의 커맨드로 압축이 된다.
+//        post=requestDto.toEntity();
+//       postRepositoryV4.save(post);
        PostV4 post=postRepositoryV4.save(requestDto.toEntity());
        return PostResponseDto.from(post);
-       //위는 아래와 동일한 기능을 한다.
-// return new PostResponseDto((post.getId(), post.getTitle(), post.getContent(), post.getAuthor())));
+//       return new PostResponseDto((post.getId(), post.getTitle(), post.getContent(), post.getAuthor())));
 
    }
 
@@ -55,7 +53,7 @@ public class PostServiceV4 {
           return PostResponseDto.from(post);
    }
 
-   @Transactional()
+   @Transactional
    public void deletePost(Long id) {
        PostV4 post=postRepositoryV4.findById(id)
                .orElseThrow(()->new IllegalArgumentException());

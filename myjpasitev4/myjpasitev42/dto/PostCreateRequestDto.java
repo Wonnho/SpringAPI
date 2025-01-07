@@ -1,6 +1,6 @@
-package com.example.demo.myjpasitev4.dto;
+package com.example.demo.myjpasitev42.dto;
 
-import com.example.demo.myjpasitev4.PostV4;
+import com.example.demo.myjpasitev42.PostV4;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -13,7 +13,7 @@ public class PostCreateRequestDto {
  private String content;
  private String author;
 
-public  PostV4 toEntity() {
+public PostV4 toEntity() {
     return PostV4.builder()
             .title(this.title)
             .content(this.content)
